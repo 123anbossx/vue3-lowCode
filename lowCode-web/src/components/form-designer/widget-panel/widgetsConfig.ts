@@ -1,0 +1,27 @@
+export const widgetList = [
+    {
+        name:'按钮',
+        type:'el-button',
+        key:'el-button',
+    },
+    {
+        name:'单行输入',
+        type:'el-input',
+        key:'el-input',
+    },
+    {
+        name:'单选框',
+        type:'el-radio-group',
+        key:'el-radio-group',
+    },
+    {
+        name:'评分',
+        type:'el-rate',
+        key:'el-rate',  
+    },
+    {
+        name:'评分',
+        type:'el-input-number',
+        key:'el-input-number',  
+    }
+]
