@@ -1,18 +1,32 @@
 <template>
     <div class="widget-inner-con">
-        <draggable :list="widgetList" item-key="key">
+        <draggable :list="dataList.widgetList" item-key="key" ghost-class="ghost" @end="onContainerDragEnd">
             <template #item="{ element }">
                 <div class="widget-item">{{element.name}}</div>
             </template>
         </draggable>
+        <div>{{data.dataSelect}}</div>
     </div>   
+    
 </template>
 
 <script lang="ts" setup>
     import {widgetList } from './widgetsConfig'
     import draggable from 'vuedraggable'
-    import { ref } from 'vue'
+    import { reactive, ref } from 'vue'
     let inputValue = ref('')
+    let dataList = reactive({
+        widgetList:widgetList
+    })
+    let data = reactive({
+        dataSelect:{}
+    })
+   let  onContainerDragEnd = (origin:object)=>{
+      let {_underlying_vm_} = origin.item
+      data.dataSelect = _underlying_vm_
+      console.log(data)
+      
+    }
 </script>
 <style lang="scss" scoped>
 .widget-inner-con{
