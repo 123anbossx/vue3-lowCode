@@ -5,26 +5,32 @@
                 <div class="widget-item">{{element.name}}</div>
             </template>
         </draggable>
-        <div>{{data.dataSelect}}</div>
+        <div v-for="item of dataSelect.wideStoreList" :key="item.key">{{item}}</div>
     </div>   
     
 </template>
 
 <script lang="ts" setup>
     import {widgetList } from './widgetsConfig'
+    import { storeToRefs } from 'pinia'
+    import {wideListStore} from '@/store'
     import draggable from 'vuedraggable'
     import { reactive, ref } from 'vue'
+    const wideStore = wideListStore()
     let inputValue = ref('')
     let dataList = reactive({
         widgetList:widgetList
     })
-    let data = reactive({
-        dataSelect:{}
+    let dataSelect:any = reactive({
+        wideStoreList:[]
     })
    let  onContainerDragEnd = (origin:object)=>{
       let {_underlying_vm_} = origin.item
-      data.dataSelect = _underlying_vm_
-      console.log(data)
+      wideStore.wideSelectList.push(_underlying_vm_)
+      const {wideSelectList} = storeToRefs(wideStore)
+      dataSelect.wideStoreList= wideSelectList
+      console.log(dataSelect.wideStoreList) 
+     
       
     }
 </script>

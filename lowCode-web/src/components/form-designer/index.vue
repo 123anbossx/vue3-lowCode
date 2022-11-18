@@ -4,10 +4,10 @@
             <WidgetPanel/> 
         </div>
         <div>
-
+            <RenderPanel/>
         </div>
         <div>
-
+            <formWidget/>
         </div>
     </div>
 
@@ -16,6 +16,8 @@
 
 <script lang="ts" setup>
 import WidgetPanel from  './widget-panel/index.vue'
+import RenderPanel from './render-panel/index.vue'
+import formWidget from './form-widget/index.vue'
 </script>
 <style lang="scss" scoped>
     .form-set-all-con{

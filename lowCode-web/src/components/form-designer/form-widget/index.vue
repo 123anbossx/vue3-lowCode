@@ -1,5 +1,5 @@
 <template>
-    <div class="render-inner-con">
+    <div class="form-inner-pannel-con">
         <div>wefwjkef</div>
     </div>   
 </template>
@@ -9,7 +9,7 @@
     let inputValue = ref('')
 </script>
 <style lang="scss" scoped>
-.render-inner-con{
+.form-inner-pannel-con{
     width: 100%;
     height: 100vh;
 }
